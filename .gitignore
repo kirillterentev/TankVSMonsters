@@ -35,3 +35,4 @@ ExportedObj/
 /.vs/TankVSMonsters/v15/Server/sqlite3/storage.ide
 /.vs/TankVSMonsters/v15/Server/sqlite3/storage.ide-shm
 /.vs/TankVSMonsters/v15/Server/sqlite3/storage.ide-wal
+/.vs/TankVSMonsters/DesignTimeBuild/*.dtbcache
