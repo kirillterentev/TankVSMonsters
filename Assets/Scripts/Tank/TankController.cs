@@ -13,6 +13,10 @@ namespace BattleVehicle
 
 		[Inject]
 		private IInputManager inputManager;
+		[Inject(Id = "TankHealthBar")]
+		private IIndicator healthBar;
+		[Inject(Id = "TankArmorBar")]
+		private IIndicator armorBar;
 		private IWeaponManager weaponManager;
 		private IMover mover;
 
@@ -20,12 +24,20 @@ namespace BattleVehicle
 		{
 			weaponManager = GetComponentInChildren<IWeaponManager>();
 			mover = GetComponent<IMover>();
+			healthBar.SetMaxValue(tankData.MaxHealth);
+			armorBar.SetMaxValue(tankData.MaxArmor);
 
 			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
 			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
 			inputManager.SubscribeToButtonDown("Fire", () => weaponManager.Fire());
 			inputManager.SubscribeToButtonDown("NextWeapon", () => weaponManager.NextWeapon());
 			inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
+		}
+
+		void Start()
+		{
+			healthBar.SetValue(75);
+			armorBar.SetValue(50);
 		}
 
 		public void Damage()

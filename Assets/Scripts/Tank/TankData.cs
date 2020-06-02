@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace BattleVehicle
 {
@@ -7,8 +8,10 @@ namespace BattleVehicle
 	{
 		public float Speed;
 		public float SpeedRot;
-		public int Health;
-		public int Armor;
+		[HideInInspector] public int Health;
+		public int MaxHealth;
+		[HideInInspector] public int Armor;
+		public int MaxArmor;
 	}
 }
 
