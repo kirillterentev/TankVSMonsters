@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace BattleVehicle
 {
@@ -14,28 +15,19 @@ namespace BattleVehicle
 		private Shell shellPrefab;
 
 		private Rigidbody rigidbody;
-		private Vector3 movementVector;
 		private Transform tBody;
+
+		[Inject]
+		private IInputManager inputManager;
 
 		void Awake()
 		{
 			rigidbody = GetComponent<Rigidbody>();
-			movementVector = Vector3.zero;
 			tBody = transform;
-		}
 
-		void FixedUpdate()
-		{
-			movementVector.x = Input.GetAxis("Horizontal");
-			movementVector.z = Input.GetAxis("Vertical");
-
-			rigidbody.MovePosition(rigidbody.position + movementVector.z * tBody.forward * Speed * Time.fixedDeltaTime);
-			rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(movementVector.x * SpeedRot * Time.fixedDeltaTime));
-
-			if (Input.GetKeyDown(KeyCode.X))
-			{
-				Fire();
-			}
+			inputManager.SubscribeToAxis("Vertical", (z) => rigidbody.MovePosition(rigidbody.position + z * tBody.forward * Speed * Time.fixedDeltaTime));
+			inputManager.SubscribeToAxis("Horizontal", (x) => rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(x * SpeedRot * Time.fixedDeltaTime)));
+			inputManager.SubscribeToButtonDown("Fire", () => Fire());
 		}
 
 		void Fire()
