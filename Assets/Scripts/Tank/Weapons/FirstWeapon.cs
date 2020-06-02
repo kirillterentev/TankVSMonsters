@@ -5,14 +5,13 @@ namespace BattleVehicle
 {
 	public class FirstWeapon : MonoBehaviour, IWeapon
 	{
-		[SerializeField] private Transform shootPoint;
-		[SerializeField] private float speedFire;
-		[SerializeField] private Shell shellPrefab;
+		[SerializeField]
+		private WeaponData weaponData;
 
 		public void Fire()
 		{
-			var go = Instantiate(shellPrefab, shootPoint.position, Quaternion.identity) as Shell;
-			go.Shoot(shootPoint.forward * speedFire);
+			var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[0].position, Quaternion.identity) as Shell;
+			go.Shoot(weaponData.ShootPoints[0].forward * weaponData.SpeedFire);
 		}
 
 		public void Join()
