@@ -21,8 +21,8 @@ namespace BattleVehicle
 			weaponManager = GetComponentInChildren<IWeaponManager>();
 			mover = GetComponent<IMover>();
 
-			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z));
-			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingDirection(Right * x));
+			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
+			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
 			inputManager.SubscribeToButtonDown("Fire", () => weaponManager.Fire());
 			inputManager.SubscribeToButtonDown("NextWeapon", () => weaponManager.NextWeapon());
 			inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
