@@ -24,8 +24,6 @@ namespace BattleVehicle
 		{
 			weaponManager = GetComponentInChildren<IWeaponManager>();
 			mover = GetComponent<IMover>();
-			healthBar.SetMaxValue(tankData.MaxHealth);
-			armorBar.SetMaxValue(tankData.MaxArmor);
 
 			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
 			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
@@ -36,8 +34,8 @@ namespace BattleVehicle
 
 		void Start()
 		{
-			healthBar.SetValue(75);
-			armorBar.SetValue(50);
+			healthBar.SetValue(0.5f);
+			armorBar.SetValue(0.7f);
 		}
 
 		public void Damage()

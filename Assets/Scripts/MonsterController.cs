@@ -1,45 +1,61 @@
 ﻿using BattleVehicle;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
-public class MonsterController : MonoBehaviour
+namespace Enemies
 {
-	[SerializeField]
-	private NavMeshAgent agent;
-
-	private Transform target;
-	private TankController player;
-
-	void FixedUpdate()
+	public class MonsterController : MonoBehaviour
 	{
-		if (target != null)
+		[SerializeField]
+		private MonsterData monsterData;
+
+		[Inject]
+		private IIndicator monsterIndicator;
+
+		[SerializeField]
+		private NavMeshAgent agent;
+
+		private Transform target;
+		private TankController player;
+
+		private void Start()
 		{
-			agent.SetDestination(target.position);
+			monsterIndicator.SetValue(0.7f);
 		}
-	}
 
-	public void SetTarget(TankController target)
-	{
-		this.target = target.transform;
-		player = target;
-	}
-
-	void OnCollisionEnter(Collision other)
-	{
-		if (other.collider.tag == "Shell")
+		void FixedUpdate()
 		{
-			Debug.Log("Враг получил урон!");
-			Destroy(other.collider.gameObject);
-			return;
+			if (target != null)
+			{
+				agent.SetDestination(target.position);
+			}
 		}
-	}
 
-	void OnTriggerStay(Collider other)
-	{
-		if (other.tag == "Player")
+		public void SetTarget(TankController target)
 		{
-			player.Damage();
-			return;
+			this.target = target.transform;
+			player = target;
+		}
+
+		void OnCollisionEnter(Collision other)
+		{
+			if (other.collider.tag == "Shell")
+			{
+				Debug.Log("Враг получил урон!");
+				Destroy(other.collider.gameObject);
+				return;
+			}
+		}
+
+		void OnTriggerStay(Collider other)
+		{
+			if (other.tag == "Player")
+			{
+				player.Damage();
+				return;
+			}
 		}
 	}
 }
+
