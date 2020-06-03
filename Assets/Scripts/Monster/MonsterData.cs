@@ -7,11 +7,9 @@ namespace Enemies
 	public class MonsterData
 	{
 		[HideInInspector]
-		public int Health;
-		public int MaxHealth;
-		[HideInInspector]
-		public int Armor;
-		public int MaxArmor;
+		public float Health;
+		public float MaxHealth;
+		public float Armor;
 		public Damage Damage;
 		public int Speed;
 		public int SpeedRot;

@@ -8,7 +8,8 @@ namespace BattleVehicle
 	{
 		public Transform[] ShootPoints;
 		public float SpeedFire;
-		public Shell ShellPrefab;
+		public int Damage;
+		public AbstractShell ShellPrefab;
 	}
 }
 

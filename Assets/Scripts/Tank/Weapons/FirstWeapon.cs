@@ -10,8 +10,9 @@ namespace BattleVehicle
 
 		public void Fire()
 		{
-			var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[0].position, Quaternion.identity) as Shell;
+			var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[0].position, Quaternion.identity) as AbstractShell;
 			go.Shoot(weaponData.ShootPoints[0].forward * weaponData.SpeedFire);
+			go.SetDamageValue(weaponData.Damage);
 		}
 
 		public void Join()

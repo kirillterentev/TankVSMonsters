@@ -3,7 +3,7 @@ using Zenject;
 
 namespace BattleVehicle
 {
-	public class TankController : MonoBehaviour
+	public class TankController : MonoBehaviour, IDamageble
 	{
 		private readonly Vector2 Up = Vector2.up;
 		private readonly Vector2 Right = Vector2.right;
@@ -13,15 +13,16 @@ namespace BattleVehicle
 
 		[Inject]
 		private IInputManager inputManager;
-		[Inject(Id = "TankHealthBar")]
+		[Inject]
 		private IIndicator healthBar;
-		[Inject(Id = "TankArmorBar")]
-		private IIndicator armorBar;
 		private IWeaponManager weaponManager;
 		private IMover mover;
 
 		void Awake()
 		{
+			tankData.Health = tankData.MaxHealth;
+			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
+
 			weaponManager = GetComponentInChildren<IWeaponManager>();
 			mover = GetComponent<IMover>();
 
@@ -32,15 +33,11 @@ namespace BattleVehicle
 			inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
 		}
 
-		void Start()
+		public void GetDamage(int value)
 		{
-			healthBar.SetValue(0.5f);
-			armorBar.SetValue(0.7f);
-		}
-
-		public void Damage()
-		{
-			Debug.Log("Танк получил урон!");
+			Debug.Log("Танк получил урон");
+			tankData.Health -= value * tankData.Armor;
+			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
 		}
 	}
 }

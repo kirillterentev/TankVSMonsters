@@ -11,8 +11,9 @@ namespace BattleVehicle
 		{
 			for (int i = 0; i < weaponData.ShootPoints.Length; i++)
 			{
-				var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[i].position, Quaternion.identity) as Shell;
+				var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[i].position, Quaternion.identity) as UsualShell;
 				go.Shoot(weaponData.ShootPoints[i].forward * weaponData.SpeedFire);
+				go.SetDamageValue(weaponData.Damage);
 			}
 		}
 

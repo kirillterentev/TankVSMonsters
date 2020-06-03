@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6139149893043203270}
   - component: {fileID: 7686486418526684144}
   - component: {fileID: 285159531100260913}
-  - component: {fileID: 2199853863367874829}
   - component: {fileID: 6392567053070561592}
   - component: {fileID: 3790901074830857118}
+  - component: {fileID: 1310752169269873580}
   m_Layer: 8
-  m_Name: Shell
+  m_Name: UsualShell
   m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,19 +96,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2199853863367874829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5551153388990404586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017b9832257d32044828bac662b76caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6392567053070561592}
 --- !u!54 &6392567053070561592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,3 +218,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1310752169269873580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551153388990404586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017b9832257d32044828bac662b76caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 285159531100260913}
+  rigidbody: {fileID: 6392567053070561592}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using BattleVehicle;
+using Enemies;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -9,9 +10,4 @@ public class GameController : MonoBehaviour
 	private TankController player;
 	[SerializeField]
 	private MonsterController monster;
-
-    void Start()
-    {
-        monster.SetTarget(player);
-    }
 }

@@ -133,6 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a61408aa9b84349b206e0a2cee6af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &282094041 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6149367412776144973, guid: 6c2f2d822f5346440adc4891d2ccac66,
+    type: 3}
+  m_PrefabInstance: {fileID: 6149367413033073044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &315538439
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,18 +414,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &825324691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2592571026676973520, guid: 6c2f2d822f5346440adc4891d2ccac66,
-    type: 3}
-  m_PrefabInstance: {fileID: 6149367413033073044}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2058971734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 917126988204796442, guid: 6c2f2d822f5346440adc4891d2ccac66,
-    type: 3}
-  m_PrefabInstance: {fileID: 6149367413033073044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2089249255
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,30 +466,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 441594711804860431, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0.154
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116166928049884859, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: _autoRun
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6149367412776144960, guid: 6c2f2d822f5346440adc4891d2ccac66,
         type: 3}
       propertyPath: m_Name
       value: Tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149367412776144961, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: tankData.MaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149367412776144961, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: tankData.MaxArmor
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6149367412776144973, guid: 6c2f2d822f5346440adc4891d2ccac66,
         type: 3}
@@ -551,21 +525,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242282414764551825, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 825324691}
-    - target: {fileID: 6242282414764551825, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: armorBar
-      value: 
-      objectReference: {fileID: 2058971734}
-    - target: {fileID: 8739403625041222774, guid: 6c2f2d822f5346440adc4891d2ccac66,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0.154
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2f2d822f5346440adc4891d2ccac66, type: 3}
@@ -636,6 +595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 7554192260711367552, guid: c88d366385b5e8b4398fe28718773a2d,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 282094041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c88d366385b5e8b4398fe28718773a2d, type: 3}
 --- !u!114 &7554192260711367552 stripped

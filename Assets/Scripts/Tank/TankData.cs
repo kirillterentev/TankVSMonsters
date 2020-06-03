@@ -8,10 +8,10 @@ namespace BattleVehicle
 	{
 		public float Speed;
 		public float SpeedRot;
-		[HideInInspector] public int Health;
-		public int MaxHealth;
-		[HideInInspector] public int Armor;
-		public int MaxArmor;
+		[HideInInspector]
+		public float Health;
+		public float MaxHealth;
+		public float Armor;
 	}
 }
 
