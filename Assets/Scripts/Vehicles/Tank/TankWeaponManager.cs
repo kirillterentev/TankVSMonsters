@@ -19,7 +19,7 @@ namespace BattleVehicle
 			{
 				weapons[i].Unjoin();
 			}
-			
+		
 			weapons[currentWeaponIndex].Join();
 		}
 

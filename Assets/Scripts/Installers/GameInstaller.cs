@@ -1,3 +1,4 @@
+using BattleVehicle;
 using Enemies;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,6 @@ public class GameInstaller : MonoInstaller
     public override void InstallBindings()
     {
 		Container.BindFactory<EnemyType, AbstractEnemyController, EnemyFactory>().FromFactory<MonsterFactory>();
-		//Container.BindFactory<AbstractEnemyController, EnemyFactory>().FromComponentOn(enemyFactory);
-	}
+	    Container.BindFactory<AbstractVehicleController, VehicleFactory>().FromFactory<TankFactory>();
+    }
 }

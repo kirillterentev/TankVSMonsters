@@ -25,7 +25,7 @@ namespace Enemies
 		{
 			switch (param)
 			{
-				case EnemyType.Soldier: return diContainer.InstantiatePrefabResourceForComponent<MonsterController>($"{PrefabsFolder}/{param.ToString()}", Vector3.zero, Quaternion.identity, null);
+				case EnemyType.Soldier: return diContainer.InstantiatePrefabResourceForComponent<MonsterController>($"{PrefabsFolder}/{param.ToString()}", new Vector3(0, 0.5f, -10), Quaternion.identity, null);
 				default: return null;
 			}
 		}
