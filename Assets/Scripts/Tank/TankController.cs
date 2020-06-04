@@ -11,26 +11,30 @@ namespace BattleVehicle
 		[SerializeField]
 		private TankData tankData;
 
-		[Inject]
-		private IInputManager inputManager;
+		//[Inject]
+		//private IInputManager inputManager;
 		[Inject]
 		private IIndicator healthBar;
 		private IWeaponManager weaponManager;
 		private IMover mover;
 
+		//[Inject]
+		//private AbstractEnemyController enemy;
 		void Awake()
 		{
+			//Debug.Log($"Enemy = {enemy}");
+
 			tankData.Health = tankData.MaxHealth;
 			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
 
 			weaponManager = GetComponentInChildren<IWeaponManager>();
 			mover = GetComponent<IMover>();
 
-			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
-			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
-			inputManager.SubscribeToButtonDown("Fire", () => weaponManager.Fire());
-			inputManager.SubscribeToButtonDown("NextWeapon", () => weaponManager.NextWeapon());
-			inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
+			//inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
+			//inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
+			//inputManager.SubscribeToButtonDown("Fire", () => weaponManager.Fire());
+			//inputManager.SubscribeToButtonDown("NextWeapon", () => weaponManager.NextWeapon());
+			//inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
 		}
 
 		public void GetDamage(int value)

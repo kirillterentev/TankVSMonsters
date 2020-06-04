@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using BattleVehicle;
-using Enemies;
+﻿using Enemies;
 using UnityEngine;
+using Zenject;
 
 public class GameController : MonoBehaviour
 {
-	[SerializeField]
-	private TankController player;
-	[SerializeField]
-	private MonsterController monster;
+	[Inject]
+	private EnemyFactory enemyFactory;
+
+	private void Start()
+	{
+		enemyFactory.Create(EnemyType.Soldier);
+	}
 }

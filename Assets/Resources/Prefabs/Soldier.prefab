@@ -454,7 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eb5678000104c45a6594f418c52dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 851578855}
+  monsterIndicator: {fileID: 851578855}
+  monsterMover: {fileID: 4812879042378164680}
+  monsterBumper: {fileID: 4812879042378164680}
 --- !u!114 &7554192260711367560
 MonoBehaviour:
   m_ObjectHideFlags: 0

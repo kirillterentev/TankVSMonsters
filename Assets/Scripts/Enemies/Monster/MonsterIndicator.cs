@@ -2,6 +2,7 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Enemies
 {
@@ -10,7 +11,7 @@ namespace Enemies
 		private Image image;
 		private IDisposable showStream;
 
-		private void Awake()
+		public void Awake()
 		{
 			image = GetComponent<Image>();
 			image.gameObject.SetActive(false);

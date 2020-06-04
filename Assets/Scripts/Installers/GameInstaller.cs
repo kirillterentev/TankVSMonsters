@@ -1,13 +1,15 @@
+using Enemies;
 using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
 	[SerializeField]
-	private TankInputManager inputManager;
+	private GameObject enemyFactory;
 
     public override void InstallBindings()
     {
-	    Container.Bind<IInputManager>().To<TankInputManager>().FromInstance(inputManager).AsSingle().NonLazy();
-    }
+		Container.BindFactory<EnemyType, AbstractEnemyController, EnemyFactory>().FromFactory<MonsterFactory>();
+		//Container.BindFactory<AbstractEnemyController, EnemyFactory>().FromComponentOn(enemyFactory);
+	}
 }
