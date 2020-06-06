@@ -17,7 +17,6 @@ namespace Enemies
 		private IMover monsterMover;
 		[Inject]
 		private IBumper monsterBumper;
-		private TankController player;
 
 		private void Start()
 		{
@@ -25,6 +24,11 @@ namespace Enemies
 			monsterIndicator.SetValue(monsterData.Health / monsterData.MaxHealth);
 			monsterMover.SetMovingRotation(Up * monsterData.SpeedRot);
 			monsterBumper.SetAttackValue(monsterData.Damage);
+		}
+
+		private void FixedUpdate()
+		{
+			monsterMover.SetMovingDirection(vehicle.transform.position);
 		}
 
 		public void GetDamage(int value)

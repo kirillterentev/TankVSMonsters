@@ -5,7 +5,7 @@ namespace BattleVehicle
 {
 	public class TankFactory : IFactory<AbstractVehicleController>
 	{
-		private readonly string PrefabPath = "Prefabs/Tank";
+		private readonly string PrefabPath = "Prefabs/Vehicles/Tank";
 
 		private DiContainer diContainer;
 

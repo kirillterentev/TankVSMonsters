@@ -8,6 +8,13 @@ public class ShellPool : AbstractShellPool
 
 	protected override AbstractShell CreateInstance()
 	{
-		return shellFactory.Create(prefabName);
+		var shell = shellFactory.Create(prefabName);
+		shell.DoOnDestroy(() => Return(shell));
+		return shell;
+	}
+
+	protected override void OnBeforeRent(AbstractShell instance)
+	{
+		
 	}
 }

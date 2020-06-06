@@ -3,31 +3,26 @@ using Zenject;
 
 namespace Enemies
 {
-	public enum EnemyType
+	public class MonsterFactory : IFactory<EnemyFactory.EnemyType, AbstractEnemyController>
 	{
-		Soldier,
-		Tank,
-		Shooter
-	}
-
-	public class MonsterFactory : IFactory<EnemyType, MonsterController>
-	{
-		private readonly string PrefabsFolder = "Prefabs";
+		private readonly string PrefabsFolder = "Prefabs/Monsters";
 
 		private DiContainer diContainer;
+		private Transform parent;
 
 		public MonsterFactory(DiContainer diContainer)
 		{
 			this.diContainer = diContainer;
+			parent = new GameObject("Monsters").transform;
 		}
 
-		public MonsterController Create(EnemyType param)
+		public AbstractEnemyController Create(EnemyFactory.EnemyType param)
 		{
-			switch (param)
-			{
-				case EnemyType.Soldier: return diContainer.InstantiatePrefabResourceForComponent<MonsterController>($"{PrefabsFolder}/{param.ToString()}", new Vector3(0, 0.5f, -10), Quaternion.identity, null);
-				default: return null;
-			}
+			return diContainer.InstantiatePrefabResourceForComponent<MonsterController>(
+				$"{PrefabsFolder}/{param.ToString()}", 
+				new Vector3(0, 0.5f, -10), 
+				Quaternion.identity, 
+				parent);
 		}
 	}
 }

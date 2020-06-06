@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System;
+using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
@@ -11,24 +12,38 @@ namespace BattleVehicle
 		[SerializeField]
 		private Collider collider;
 
+		private IDisposable collisionStream;
+
 		private void Start()
 		{
-			collider.OnCollisionEnterAsObservable()
-				.Subscribe(collision => { TakeDamage(collision); })
-				.AddTo(this);
+			DoOnDestroy(() =>
+			{
+				rigidbody.velocity = Vector3.zero;
+				rigidbody.angularVelocity = Vector3.zero;
+				collisionStream?.Dispose();
+			});
 		}
 
 		private void TakeDamage(Collision collision)
 		{
 			var target = collision.collider.GetComponent<IDamageble>();
 			target?.GetDamage(damage);
-			Destroy(gameObject);
+			destroyAction?.Invoke();
 		}
 
 		public override void Shoot(Vector3 direction)
 		{
+			collisionStream = collider.OnCollisionEnterAsObservable()
+				.Subscribe(collision => { TakeDamage(collision); })
+				.AddTo(this);
+
 			rigidbody.AddForce(direction, ForceMode.VelocityChange);
-			Destroy(gameObject, 2);
+
+			Observable.Timer(TimeSpan.FromSeconds(2))
+				.Subscribe(_ =>
+				{
+					destroyAction?.Invoke();
+				});
 		}
 	}
 }

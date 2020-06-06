@@ -23,7 +23,8 @@ namespace BattleVehicle
 				var go = shellPool.Rent();
 				go.transform.position = weaponData.ShootPoints[i].position;
 				go.transform.rotation = Quaternion.identity;
-				go.Shoot(weaponData.ShootPoints[0].forward * weaponData.SpeedFire);
+				go.gameObject.SetActive(true);
+				go.Shoot(weaponData.ShootPoints[i].forward * weaponData.SpeedFire);
 				go.SetDamageValue(weaponData.Damage);
 			}
 		}

@@ -10,8 +10,7 @@ public class MonsterMover : MonoBehaviour, IMover
 
 	public void SetMovingDirection(Vector3 direction)
 	{
-		agent.speed = direction.magnitude;
-		agent.SetDestination(tBody.position + direction);
+		agent.SetDestination(direction);
 	}
 
 	public void SetMovingRotation(Vector3 rotation)

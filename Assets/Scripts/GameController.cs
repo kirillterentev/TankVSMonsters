@@ -1,18 +1,20 @@
 ﻿using BattleVehicle;
-using Enemies;
 using UnityEngine;
 using Zenject;
 
 public class GameController : MonoBehaviour
 {
 	[Inject]
-	private EnemyFactory enemyFactory;
+	private AbstractEnemyControllerPool enemyPool;
 	[Inject]
 	private VehicleFactory vehicleFactory;
 
+	private AbstractVehicleController vehicle;
+
 	private void Start()
 	{
-		enemyFactory.Create(EnemyType.Soldier);
-		vehicleFactory.Create();
+		vehicle = vehicleFactory.Create();
+		var enemy = enemyPool.Rent();
+		enemy.Init(vehicle);
 	}
 }

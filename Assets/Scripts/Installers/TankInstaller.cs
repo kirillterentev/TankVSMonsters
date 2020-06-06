@@ -23,7 +23,7 @@ public class TankInstaller : MonoInstaller
 			.FromComponentOn(weaponManager).AsSingle();
 		Container.Bind<IMover>().To<TankMover>()
 			.FromComponentOn(mover).AsSingle();
-		Container.Bind<AbstractShellPool>().To<ShellPool>().AsSingle().NonLazy();
+		Container.Bind<AbstractShellPool>().To<ShellPool>().AsTransient().NonLazy();
 		Container.BindFactory<string, AbstractShell, AbstractShellFactory>().FromFactory<ShellFactory>();
 	}
 }
