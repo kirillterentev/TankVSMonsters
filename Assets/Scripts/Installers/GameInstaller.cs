@@ -5,9 +5,6 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-	[SerializeField]
-	private GameObject enemyFactory;
-
     public override void InstallBindings()
     {
 	    Container.BindFactory<EnemyFactory.EnemyType, AbstractEnemyController, EnemyFactory>().FromFactory<MonsterFactory>();

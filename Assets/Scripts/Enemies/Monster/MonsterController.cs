@@ -18,8 +18,9 @@ namespace Enemies
 		[Inject]
 		private IBumper monsterBumper;
 
-		private void Start()
+		public override void Init(AbstractVehicleController vehicle)
 		{
+			base.Init(vehicle);
 			monsterData.Health = monsterData.MaxHealth;
 			monsterIndicator.SetValue(monsterData.Health / monsterData.MaxHealth);
 			monsterMover.SetMovingRotation(Up * monsterData.SpeedRot);
@@ -36,6 +37,10 @@ namespace Enemies
 			Debug.Log("Монстр получил урон");
 			monsterData.Health -= value * monsterData.Armor;
 			monsterIndicator.SetValue(monsterData.Health / monsterData.MaxHealth);
+			if (monsterData.Health <= 0)
+			{
+				destroyAction?.Invoke();
+			}
 		}
 	}
 }

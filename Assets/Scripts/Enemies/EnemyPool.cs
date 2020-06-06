@@ -1,5 +1,4 @@
 ﻿using System;
-using BattleVehicle;
 using Enemies;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -18,12 +17,13 @@ public class EnemyPool : AbstractEnemyControllerPool
 			values = Enum.GetValues(typeof(EnemyFactory.EnemyType));
 		}
 		
-		return enemyFactory.Create((EnemyFactory.EnemyType)values.GetValue(Random.Range(0, values.Length - 1)));
+		var enemy = enemyFactory.Create((EnemyFactory.EnemyType)values.GetValue(Random.Range(0, values.Length)));
+		enemy.DoOnDestroy(() => Return(enemy));
+		return enemy;
 	}
 
-	protected override void OnBeforeReturn(AbstractEnemyController instance)
+	protected override void OnBeforeRent(AbstractEnemyController instance)
 	{
-		base.OnBeforeReturn(instance);
-		instance.Init(null);
+
 	}
 }

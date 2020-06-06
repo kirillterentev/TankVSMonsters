@@ -13,6 +13,11 @@ namespace Enemies
 		{
 			this.vehicle = vehicle;
 		}
+
+		public virtual void DoOnDestroy(Action action)
+		{
+			destroyAction += action;
+		}
 	}
 }
 

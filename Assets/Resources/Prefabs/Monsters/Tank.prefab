@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2963436708503199157}
   - component: {fileID: 7199721789653762620}
   - component: {fileID: 8410774709647544580}
-  - component: {fileID: 2598587840499633646}
-  - component: {fileID: 2598587840499633641}
   - component: {fileID: 2598587840499633638}
+  - component: {fileID: 2598587840499633641}
+  - component: {fileID: 2598587840499633646}
   - component: {fileID: 2598587840499633639}
   - component: {fileID: 2813153315009381913}
   m_Layer: 9
@@ -155,6 +155,39 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2598587840499633638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013081167907973030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 2598587840499633641}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &2598587840499633641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013081167907973030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42eb5678000104c45a6594f418c52dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterIndicator: {fileID: 5532082842996539785}
+  monsterMover: {fileID: 1013081167907973030}
+  monsterBumper: {fileID: 1013081167907973030}
 --- !u!114 &2598587840499633646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,39 +209,6 @@ MonoBehaviour:
       Max: 10
     Speed: 1
     SpeedRot: 120
---- !u!114 &2598587840499633641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013081167907973030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eb5678000104c45a6594f418c52dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterIndicator: {fileID: 5532082842996539785}
-  monsterMover: {fileID: 1013081167907973030}
-  monsterBumper: {fileID: 1013081167907973030}
---- !u!114 &2598587840499633638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013081167907973030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 2598587840499633641}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!114 &2598587840499633639
 MonoBehaviour:
   m_ObjectHideFlags: 0
