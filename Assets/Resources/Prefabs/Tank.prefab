@@ -420,8 +420,7 @@ MonoBehaviour:
     - {fileID: 1160753556}
     SpeedFire: 10
     Damage: 10
-    ShellPrefab: {fileID: 1310752169269873580, guid: d2b2594cd8c444e49868996192285662,
-      type: 3}
+    ShellPrefabName: MultiGunShell
 --- !u!1 &6149367411754716458
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,8 +875,7 @@ MonoBehaviour:
     - {fileID: 1947093248}
     SpeedFire: 10
     Damage: 10
-    ShellPrefab: {fileID: 1310752169269873580, guid: d2b2594cd8c444e49868996192285662,
-      type: 3}
+    ShellPrefabName: UsualShell
 --- !u!1 &6149367413702745403
 GameObject:
   m_ObjectHideFlags: 0

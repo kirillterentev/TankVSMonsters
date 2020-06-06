@@ -1,25 +1,21 @@
-﻿using UniRx.Triggers;
+﻿using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
-using UniRx;
 
 namespace BattleVehicle
 {
-	public abstract class AbstractShell : MonoBehaviour
+	public class UsualShell : AbstractShell
 	{
 		[SerializeField]
+		private Rigidbody rigidbody;
+		[SerializeField]
 		private Collider collider;
-		private int damage;
 
-		protected virtual void Start()
+		private void Start()
 		{
 			collider.OnCollisionEnterAsObservable()
 				.Subscribe(collision => { TakeDamage(collision); })
 				.AddTo(this);
-		}
-
-		public virtual void SetDamageValue(int value)
-		{
-			damage = value;
 		}
 
 		private void TakeDamage(Collision collision)
@@ -29,9 +25,10 @@ namespace BattleVehicle
 			Destroy(gameObject);
 		}
 
-		public virtual void Shoot(Vector3 direction)
+		public override void Shoot(Vector3 direction)
 		{
-			return;
+			rigidbody.AddForce(direction, ForceMode.VelocityChange);
+			Destroy(gameObject, 2);
 		}
 	}
 }

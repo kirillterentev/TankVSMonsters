@@ -1,5 +1,6 @@
 ﻿using BattleVehicle;
 using UnityEngine;
+using Zenject;
 
 namespace BattleVehicle
 {
@@ -8,9 +9,19 @@ namespace BattleVehicle
 		[SerializeField]
 		private WeaponData weaponData;
 
+		[Inject]
+		private AbstractShellPool shellPool;
+
+		private void Start()
+		{
+			shellPool.SetPoolableObject(weaponData.ShellPrefabName);
+		}
+
 		public void Fire()
 		{
-			var go = Instantiate(weaponData.ShellPrefab, weaponData.ShootPoints[0].position, Quaternion.identity) as AbstractShell;
+			var go = shellPool.Rent();
+			go.transform.position = weaponData.ShootPoints[0].position;
+			go.transform.rotation = Quaternion.identity;
 			go.Shoot(weaponData.ShootPoints[0].forward * weaponData.SpeedFire);
 			go.SetDamageValue(weaponData.Damage);
 		}
