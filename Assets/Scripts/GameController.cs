@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 	private void Start()
 	{
 		vehicle = vehicleFactory.Create();
+		vehicle.Init();
 
 		for(int i = 0; i < spawnPoints.Length; i++)
 		{
@@ -30,12 +31,19 @@ public class GameController : MonoBehaviour
 
 		camera.SetTarget(vehicle.transform);
 		signalBus.Subscribe<EnemyKilledSignal>(EnemyKilled);
+		signalBus.Subscribe<GameOverSignal>(GameOver);
 	}
 
 	private void EnemyKilled(EnemyKilledSignal signal)
 	{
 		enemyPool.Return(signal.enemy);
 		SpawnEnemy(spawnPoints[Random.Range(0, spawnPoints.Length - 1)].position);
+	}
+
+	private void GameOver(GameOverSignal signal)
+	{
+		vehicle.transform.position = new Vector3(0, 0.5f, 0);
+		vehicle.Init();
 	}
 
 	private void SpawnEnemy(Vector3 position)

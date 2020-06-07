@@ -16,7 +16,11 @@ namespace BattleVehicle
 
 		public AbstractVehicleController Create()
 		{
-			return diContainer.InstantiatePrefabResourceForComponent<AbstractVehicleController>(PrefabPath, new Vector3(0, 0.5f, 0), Quaternion.identity, null);
+			return diContainer.InstantiatePrefabResourceForComponent<AbstractVehicleController>(
+				PrefabPath, 
+				new Vector3(0, 0.5f, 0), 
+				Quaternion.identity, 
+				null);
 		}
 	}
 }

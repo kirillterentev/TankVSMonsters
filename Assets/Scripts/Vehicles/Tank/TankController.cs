@@ -19,12 +19,11 @@ namespace BattleVehicle
 		private IWeaponManager weaponManager;
 		[Inject]
 		private IMover mover;
+		[Inject]
+		private SignalBus signalBus;
 
 		private void Start()
 		{
-			tankData.Health = tankData.MaxHealth;
-			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
-
 			inputManager.SubscribeToAxis("Vertical", (z) => mover.SetMovingDirection(Up * z * tankData.Speed));
 			inputManager.SubscribeToAxis("Horizontal", (x) => mover.SetMovingRotation(Right * x * tankData.SpeedRot));
 			inputManager.SubscribeToButtonDown("Fire", () => weaponManager.Fire());
@@ -32,10 +31,20 @@ namespace BattleVehicle
 			inputManager.SubscribeToButtonDown("PrevWeapon", () => weaponManager.PrevWeapon());
 		}
 
+		public override void Init()
+		{
+			tankData.Health = tankData.MaxHealth;
+			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
+		}
+
 		public void GetDamage(int value)
 		{
 			tankData.Health -= value * tankData.Armor;
 			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
+			if (tankData.Health <= 0)
+			{
+				signalBus.Fire(new GameOverSignal());
+			}
 		}
 	}
 }
