@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7b2f0f422f4be4c890ce94f92beed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1969096345}
 --- !u!114 &315538441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119834c1514ad8443965fd9ddfa718de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1969096349}
   spawnPoints:
   - {fileID: 1303088101}
   - {fileID: 578443465}

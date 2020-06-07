@@ -10,10 +10,7 @@ public class ObservableGetAxisTrigger : ObservableTriggerBase
 
 	void Update()
 	{
-		if (Input.GetAxis(axis) != 0)
-		{
-			onGetAxis?.OnNext(Input.GetAxis(axis));
-		}
+		onGetAxis?.OnNext(Input.GetAxis(axis));
 	}
 
 	public IObservable<float> OnGetAxisAsObservable(string axis)
