@@ -1,28 +1,29 @@
 ﻿using System;
-using Enemies;
 using Zenject;
 using Random = UnityEngine.Random;
 
-public class EnemyPool : AbstractEnemyControllerPool
+namespace Enemies
 {
-	[Inject]
-	private EnemyFactory enemyFactory;
-
-	private Array values;
-
-	protected override AbstractEnemyController CreateInstance()
+	public class EnemyPool : AbstractEnemyControllerPool
 	{
-		if (values == null)
+		[Inject] private EnemyFactory enemyFactory;
+
+		private Array values;
+
+		protected override AbstractEnemyController CreateInstance()
 		{
-			values = Enum.GetValues(typeof(EnemyFactory.EnemyType));
-		}
-		
-		var enemy = enemyFactory.Create((EnemyFactory.EnemyType)values.GetValue(Random.Range(0, values.Length)));
-		return enemy;
-	}
+			if (values == null)
+			{
+				values = Enum.GetValues(typeof(EnemyFactory.EnemyType));
+			}
 
-	protected override void OnBeforeRent(AbstractEnemyController instance)
-	{
-		
+			var enemy = enemyFactory.Create((EnemyFactory.EnemyType) values.GetValue(Random.Range(0, values.Length)));
+			return enemy;
+		}
+
+		protected override void OnBeforeRent(AbstractEnemyController instance)
+		{
+
+		}
 	}
 }

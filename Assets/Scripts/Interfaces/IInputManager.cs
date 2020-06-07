@@ -1,7 +1,10 @@
 ﻿using System;
 
-public interface IInputManager
+namespace BattleVehicle
 {
-	void SubscribeToAxis(string axis, Action<float> action);
-	void SubscribeToButtonDown(string button, Action action);
+	public interface IInputManager
+	{
+		void SubscribeToAxis(string axis, Action<float> action);
+		void SubscribeToButtonDown(string button, Action action);
+	}
 }

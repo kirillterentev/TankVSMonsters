@@ -1,7 +1,10 @@
 ﻿using Enemies;
 using UniRx.Toolkit;
 
-public abstract class AbstractEnemyControllerPool : ObjectPool<AbstractEnemyController>
+namespace Enemies
 {
+	public abstract class AbstractEnemyControllerPool : ObjectPool<AbstractEnemyController>
+	{
 
+	}
 }

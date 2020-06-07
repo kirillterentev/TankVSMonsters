@@ -13,12 +13,5 @@ namespace Enemies
 		public int Speed;
 		public int SpeedRot;
 	}
-
-	[Serializable]
-	public class Damage
-	{
-		public int Min;
-		public int Max;
-	}
 }
 

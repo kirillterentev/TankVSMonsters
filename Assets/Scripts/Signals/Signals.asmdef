@@ -1,0 +1,15 @@
+{
+    "name": "Signals",
+    "references": [
+        "GUID:f8f18415e23c2bd40a7c73800139f90c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

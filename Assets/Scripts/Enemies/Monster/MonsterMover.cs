@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterMover : MonoBehaviour, IMover
+namespace Enemies
 {
-	[SerializeField]
-	protected NavMeshAgent agent;
-	[SerializeField]
-	protected Transform tBody;
-
-	public virtual void SetMovingDirection(Vector3 direction)
+	public class MonsterMover : MonoBehaviour, IMover
 	{
-		agent.SetDestination(direction);
-	}
+		[SerializeField]
+		protected NavMeshAgent agent;
+		[SerializeField]
+		protected Transform tBody;
 
-	public virtual void SetMovingRotation(Vector3 rotation)
-	{
-		agent.angularSpeed = rotation.y;
+		public virtual void SetMovingDirection(Vector3 direction)
+		{
+			agent.SetDestination(direction);
+		}
+
+		public virtual void SetMovingRotation(Vector3 rotation)
+		{
+			agent.angularSpeed = rotation.y;
+		}
 	}
 }
+

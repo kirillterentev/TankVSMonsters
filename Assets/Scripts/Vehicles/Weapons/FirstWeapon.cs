@@ -1,5 +1,4 @@
-﻿using BattleVehicle;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace BattleVehicle

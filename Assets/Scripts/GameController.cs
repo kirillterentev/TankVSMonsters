@@ -1,4 +1,5 @@
 ﻿using BattleVehicle;
+using Enemies;
 using UnityEngine;
 using Zenject;
 
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
 	{
 		vehicle = vehicleFactory.Create();
 
-		for (int i = 0; i < spawnPoints.Length; i++)
+		for(int i = 0; i < spawnPoints.Length; i++)
 		{
 			SpawnEnemy(spawnPoints[i].position);
 		}
