@@ -34,7 +34,6 @@ namespace BattleVehicle
 
 		public void GetDamage(int value)
 		{
-			Debug.Log("Танк получил урон");
 			tankData.Health -= value * tankData.Armor;
 			healthBar.SetValue(tankData.Health / tankData.MaxHealth);
 		}

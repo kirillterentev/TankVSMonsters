@@ -33,7 +33,6 @@ namespace Enemies
 
 		public void GetDamage(int value)
 		{
-			Debug.Log("Монстр получил урон");
 			monsterData.Health -= value * monsterData.Armor;
 			if (monsterData.Health <= 0)
 			{
