@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace BattleVehicle
 {
-	public class UsualShell : AbstractShell
+	public class MonsterShell : AbstractShell
 	{
 		[SerializeField]
 		private Rigidbody rigidbody;
@@ -27,11 +27,11 @@ namespace BattleVehicle
 		private void TakeDamage(Collision collision)
 		{
 			var target = collision.collider.GetComponent<IDamageble>();
-			if (target != null && collision.collider.tag == "Enemy")
+			if (target != null && collision.collider.tag == "Player")
 			{
 				target?.GetDamage(damage);
-				destroyAction?.Invoke();
 			}
+			destroyAction?.Invoke();
 		}
 
 		public override void Shoot(Vector3 direction)

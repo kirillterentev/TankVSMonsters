@@ -26,12 +26,12 @@ namespace Enemies
 			monsterBumper.SetAttackValue(monsterData.Damage);
 		}
 
-		private void FixedUpdate()
+		protected virtual void FixedUpdate()
 		{
 			monsterMover.SetMovingDirection(vehicle.transform.position);
 		}
 
-		public void GetDamage(int value)
+		public virtual void GetDamage(int value)
 		{
 			monsterData.Health -= value * monsterData.Armor;
 			if (monsterData.Health <= 0)

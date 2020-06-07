@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8095856166848602176}
   - component: {fileID: 3668781264619815594}
   - component: {fileID: 797995895368782230}
+  - component: {fileID: 1849297162}
   m_Layer: 9
   m_Name: LeftHand
   m_TagString: Untagged
@@ -28,7 +29,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55, y: 0.136, z: 0.72000015}
   m_LocalScale: {x: 0.3, y: 0.1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2843465674277072669}
   m_Father: {fileID: 1811091338570461680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,6 +81,54 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1849297162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590068017244297010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64320dd3a42ec3947b1f691842900812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData:
+    ShootPoints:
+    - {fileID: 2843465674277072669}
+    SpeedFire: 5
+    Damage: 5
+    ShellPrefabName: MonsterShell
+--- !u!1 &4983280242616076336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2843465674277072669}
+  m_Layer: 9
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2843465674277072669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983280242616076336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8095856166848602176}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5781702403894059856
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,14 +144,14 @@ GameObject:
   - component: {fileID: 8580388341001083203}
   - component: {fileID: 4456620321890993866}
   - component: {fileID: 3065411245030757874}
-  - component: {fileID: 8801051403143022872}
-  - component: {fileID: 8801051403143022879}
   - component: {fileID: 8801051403143022864}
   - component: {fileID: 8801051403143022865}
   - component: {fileID: 8735224374160949999}
+  - component: {fileID: 1556836458022739217}
+  - component: {fileID: 2035906360655188546}
   m_Layer: 9
   m_Name: Shooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,42 +283,6 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8801051403143022872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781702403894059856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad7aaae692c6b6c408d63841db1c5f63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterData:
-    Health: 0
-    MaxHealth: 100
-    Armor: 1
-    Damage:
-      Min: 5
-      Max: 6
-    Speed: 2
-    SpeedRot: 120
---- !u!114 &8801051403143022879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781702403894059856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eb5678000104c45a6594f418c52dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterIndicator: {fileID: 0}
-  monsterMover: {fileID: 5781702403894059856}
-  monsterBumper: {fileID: 5781702403894059856}
 --- !u!114 &8801051403143022864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 8801051403143022879}
+  - {fileID: 1556836458022739217}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -314,6 +328,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumper: {fileID: 8580388341001083203}
+--- !u!114 &1556836458022739217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781702403894059856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd751f6e9a11c944da1ac10235ed49f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterMover: {fileID: 5781702403894059856}
+  monsterBumper: {fileID: 5781702403894059856}
+--- !u!114 &2035906360655188546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781702403894059856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfa7433097c93d4abe18e1a76416400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterData:
+    Health: 0
+    MaxHealth: 200
+    Armor: 0.5
+    Damage:
+      Min: 5
+      Max: 6
+    Speed: 2
+    SpeedRot: 120
 --- !u!1 &9047917842441728449
 GameObject:
   m_ObjectHideFlags: 0

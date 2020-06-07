@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6472085668666558182
+--- !u!1 &5551153388990404586
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 368568997581616286}
-  - component: {fileID: 2498637197783691406}
-  - component: {fileID: 7662376163444491606}
-  - component: {fileID: 5252335179507629974}
-  - component: {fileID: 6669663786759353362}
-  - component: {fileID: 1318106371476623357}
+  - component: {fileID: 4492401596797258514}
+  - component: {fileID: 6139149893043203270}
+  - component: {fileID: 7686486418526684144}
+  - component: {fileID: 285159531100260913}
+  - component: {fileID: 6392567053070561592}
+  - component: {fileID: 1272314388375448874}
   m_Layer: 0
-  m_Name: MultiGunShell
+  m_Name: MonsterShell
   m_TagString: Shell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &368568997581616286
+--- !u!4 &4492401596797258514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.307, y: 1.286, z: 2.201}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.028, y: 1.286, z: 2.201}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2498637197783691406
+--- !u!33 &6139149893043203270
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7662376163444491606
+--- !u!23 &7686486418526684144
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,26 +82,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5252335179507629974
+--- !u!135 &285159531100260913
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6669663786759353362
+--- !u!54 &6392567053070561592
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   serializedVersion: 2
   m_Mass: 0.0000001
   m_Drag: 0
@@ -111,17 +111,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1318106371476623357
+--- !u!114 &1272314388375448874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472085668666558182}
+  m_GameObject: {fileID: 5551153388990404586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017b9832257d32044828bac662b76caa, type: 3}
+  m_Script: {fileID: 11500000, guid: 902f2fe3b4dc19e44a314139e350c7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6669663786759353362}
-  collider: {fileID: 5252335179507629974}
+  rigidbody: {fileID: 6392567053070561592}
+  collider: {fileID: 285159531100260913}

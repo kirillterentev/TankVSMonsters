@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7768634590990518391}
   m_Layer: 9
   m_Name: Soldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eb5678000104c45a6594f418c52dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterIndicator: {fileID: 0}
   monsterMover: {fileID: 4812879042378164680}
   monsterBumper: {fileID: 4812879042378164680}
 --- !u!114 &7554192260711367560
