@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class MovementCamera : MonoBehaviour, ICamera
 {
 	[SerializeField]
 	private Vector3 offset;
