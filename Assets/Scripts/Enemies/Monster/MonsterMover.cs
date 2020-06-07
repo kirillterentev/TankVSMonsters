@@ -4,16 +4,16 @@ using UnityEngine.AI;
 public class MonsterMover : MonoBehaviour, IMover
 {
 	[SerializeField]
-	private NavMeshAgent agent;
+	protected NavMeshAgent agent;
 	[SerializeField]
-	private Transform tBody;
+	protected Transform tBody;
 
-	public void SetMovingDirection(Vector3 direction)
+	public virtual void SetMovingDirection(Vector3 direction)
 	{
 		agent.SetDestination(direction);
 	}
 
-	public void SetMovingRotation(Vector3 rotation)
+	public virtual void SetMovingRotation(Vector3 rotation)
 	{
 		agent.angularSpeed = rotation.y;
 	}

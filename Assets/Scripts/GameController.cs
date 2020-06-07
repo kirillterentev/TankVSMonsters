@@ -5,14 +5,14 @@ using Zenject;
 public class GameController : MonoBehaviour
 {
 	[SerializeField]
-	private CameraController camera;
-	[SerializeField]
 	private Transform[] spawnPoints;
 
 	[Inject]
 	private AbstractEnemyControllerPool enemyPool;
 	[Inject]
 	private VehicleFactory vehicleFactory;
+	[Inject]
+	private ICamera camera;
 
 	private AbstractVehicleController vehicle;
 
