@@ -18,12 +18,11 @@ public class EnemyPool : AbstractEnemyControllerPool
 		}
 		
 		var enemy = enemyFactory.Create((EnemyFactory.EnemyType)values.GetValue(Random.Range(0, values.Length)));
-		enemy.DoOnDestroy(() => Return(enemy));
 		return enemy;
 	}
 
 	protected override void OnBeforeRent(AbstractEnemyController instance)
 	{
-
+		
 	}
 }

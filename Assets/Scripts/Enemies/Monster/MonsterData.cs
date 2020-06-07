@@ -6,7 +6,6 @@ namespace Enemies
 	[Serializable]
 	public class MonsterData
 	{
-		[HideInInspector]
 		public float Health;
 		public float MaxHealth;
 		public float Armor;

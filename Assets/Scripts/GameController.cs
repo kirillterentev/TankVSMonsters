@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
 	private VehicleFactory vehicleFactory;
 	[Inject]
 	private ICamera camera;
+	[Inject]
+	private SignalBus signalBus;
 
 	private AbstractVehicleController vehicle;
 
@@ -26,6 +28,13 @@ public class GameController : MonoBehaviour
 		}
 
 		camera.SetTarget(vehicle.transform);
+		signalBus.Subscribe<EnemyKilledSignal>(EnemyKilled);
+	}
+
+	private void EnemyKilled(EnemyKilledSignal signal)
+	{
+		enemyPool.Return(signal.enemy);
+		SpawnEnemy(spawnPoints[Random.Range(0, spawnPoints.Length - 1)].position);
 	}
 
 	private void SpawnEnemy(Vector3 position)
@@ -34,12 +43,5 @@ public class GameController : MonoBehaviour
 		enemy.transform.position = position;
 		enemy.gameObject.SetActive(true);
 		enemy.Init(vehicle);
-		enemy.DoOnDestroy(() =>
-		{
-			var newEnemy = enemyPool.Rent();
-			newEnemy.transform.position = position;
-			newEnemy.gameObject.SetActive(true);
-			enemy.Init(vehicle);
-		});
 	}
 }

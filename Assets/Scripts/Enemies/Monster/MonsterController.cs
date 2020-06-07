@@ -15,6 +15,8 @@ namespace Enemies
 		private IMover monsterMover;
 		[Inject]
 		private IBumper monsterBumper;
+		[Inject]
+		private SignalBus signalBus;
 
 		public override void Init(AbstractVehicleController vehicle)
 		{
@@ -26,6 +28,7 @@ namespace Enemies
 
 		private void FixedUpdate()
 		{
+			Debug.Log($"{monsterMover} {vehicle}");
 			monsterMover.SetMovingDirection(vehicle.transform.position);
 		}
 
@@ -35,7 +38,7 @@ namespace Enemies
 			monsterData.Health -= value * monsterData.Armor;
 			if (monsterData.Health <= 0)
 			{
-				destroyAction?.Invoke();
+				signalBus.Fire(new EnemyKilledSignal(){enemy = this});
 			}
 		}
 	}
