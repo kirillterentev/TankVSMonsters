@@ -6,14 +6,23 @@ namespace BattleVehicle
 {
 	public class TankInputManager : MonoBehaviour, IInputManager
 	{
+		private ObservableGetAxisTrigger axisTrigger;
+		private ObservableGetButtonDownTrigger buttonTrigger;
+
+		private void Awake()
+		{
+			axisTrigger = gameObject.AddComponent<ObservableGetAxisTrigger>();
+			buttonTrigger = gameObject.AddComponent<ObservableGetButtonDownTrigger>();
+		}
+
 		public void SubscribeToAxis(string axis, Action<float> action)
 		{
-			gameObject.AddComponent<ObservableGetAxisTrigger>().OnGetAxisAsObservable(axis).Subscribe(x => action.Invoke(x));
+			axisTrigger.OnGetAxisAsObservable(axis).Subscribe(x => action.Invoke(x));
 		}
 
 		public void SubscribeToButtonDown(string button, Action action)
 		{
-			gameObject.AddComponent<ObservableGetButtonDownTrigger>().OnGetButtonDownAsObservable(button).Subscribe(_ => action.Invoke());
+			buttonTrigger.OnGetButtonDownAsObservable(button).Subscribe(_ => action.Invoke());
 		}
 	}
 }

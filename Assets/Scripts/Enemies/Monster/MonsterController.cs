@@ -28,7 +28,6 @@ namespace Enemies
 
 		private void FixedUpdate()
 		{
-			Debug.Log($"{monsterMover} {vehicle}");
 			monsterMover.SetMovingDirection(vehicle.transform.position);
 		}
 

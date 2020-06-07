@@ -1,29 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
 public class ObservableGetButtonDownTrigger : ObservableTriggerBase
 {
-	private Subject<Unit> onGetButtonDown;
-	private string button;
+	private List<Subject<Unit>> onGetButtonDown = new List<Subject<Unit>>();
+	private List<string> button = new List<string>();
 
 	void Update()
 	{
-		if (Input.GetButtonDown(button))
+		for (int i = 0; i < button.Count; i++)
 		{
-			onGetButtonDown?.OnNext(Unit.Default);
+			if (Input.GetButtonDown(button[i]))
+			{
+				onGetButtonDown[i].OnNext(Unit.Default);
+			}
 		}
 	}
 
 	public IObservable<Unit> OnGetButtonDownAsObservable(string button)
 	{
-		this.button = button;
-		return onGetButtonDown ?? (onGetButtonDown = new Subject<Unit>());
+		this.button.Add(button);
+		var subject = new Subject<Unit>();
+		onGetButtonDown.Add(subject);
+		return subject;
 	}
 
 	protected override void RaiseOnCompletedOnDestroy()
 	{
-		onGetButtonDown?.OnCompleted();
+		for (int i = 0; i < button.Count; i++)
+		{
+			if (Input.GetButtonDown(button[i]))
+			{
+				onGetButtonDown[i].OnCompleted();
+			}
+		}
 	}
 }
